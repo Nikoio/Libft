@@ -14,22 +14,22 @@
 
 unsigned long	ft_strlcpy(char *dst,
 							const char *src,
-							unsigned long size)
+							unsigned long dstsize)
 {
 	unsigned long	iter;
 
-	if (!dst || !src)
+	if (!dst)
 		return (0);
-	if (size == 0)
+	if (dstsize == 0)
 		return (ft_strlen(src));
 	iter = 0;
-	while (iter < size)
+	while (iter < dstsize)
 	{
 		*(dst + iter) = *(src + iter);
-		if (*(src + iter) == '\0')
+		if (*(dst + iter) == '\0')
 			return (ft_strlen(src));
 		iter += 1;
 	}
-	*(dst + size - 1) = '\0';
+	*(dst + dstsize - 1) = '\0';
 	return (ft_strlen(src));
 }

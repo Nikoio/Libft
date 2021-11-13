@@ -67,16 +67,24 @@ char	**ft_split(char const *s, char c)
 	int				substr_start;
 	char			**substrs;
 
-	i = 0;
-	j = 0;
+	i = -1;
+	j = -1;
 	substrs = ft_malloc_substrs(s, c);
-	while (s[i])
+	while (substrs != NULL && s[++i])
 	{
 		if (ft_is_substr_start(s, i, c))
 			substr_start = i;
 		if (ft_is_substr_end(s, i, c))
-			substrs[j++] = ft_substr(s, substr_start, (i - substr_start + 1));
-		i++;
+		{
+			substrs[++j] = ft_substr(s, substr_start, (i - substr_start + 1));
+			if (!substrs[j])
+			{
+				while (j >= 0)
+					free(substrs[j--]);
+				free(substrs);
+				return (0);
+			}
+		}
 	}
 	return (substrs);
 }

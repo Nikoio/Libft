@@ -12,6 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdlib.h>
 
 int				ft_isalpha(int c);
 
@@ -58,9 +59,7 @@ int				ft_atoi(const char *str);
 
 void			*ft_calloc(unsigned long count, unsigned long size);
 
-void			*ft_strdup(const char *src);
-
-void			*ft_strdup(const char *src);
+char			*ft_strdup(const char *src);
 
 char			*ft_substr(char const *s, unsigned int start,
 					unsigned long len);

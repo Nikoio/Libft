@@ -14,6 +14,8 @@ void	*ft_memcpy(void *dst,
 				   const void *src,
 				   unsigned long num)
 {
+	if (!dst && !src)
+		return (0);
 	while (num > 0)
 	{
 		*(char *)(dst + (num - 1)) = *(char *)(src + (num - 1));
