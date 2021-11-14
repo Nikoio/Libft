@@ -10,14 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, unsigned long len)
 {
 	char	*subs;
 
-	subs = (char *)malloc(len + 1);
+	if (len > (unsigned long)(ft_strlen(s + start)))
+		len = ft_strlen(s + start);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	subs = (char *)malloc(sizeof(char) * len + 1);
 	if (!subs)
 		return (0);
 	if (start > ft_strlen(s))
